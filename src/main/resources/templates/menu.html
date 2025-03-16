@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <div th:fragment="menu">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Продаж авто</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" th:href="@{/index}">Всі авто</a>
+                    <a class="nav-item nav-link" th:href="@{/actual}">В продажі</a>
+                    <a class="nav-item nav-link" th:href="@{/sold}">Продані</a>
+                    <a class="nav-item nav-link" th:href="@{/newPosts}">Нові оголошення</a>
+                    <a class="nav-item nav-link" th:if="${user.login == 'Гість'}" th:href="@{/registration}">Реєстрація</a>
+                    <a class="nav-item nav-link" th:if="${user.login == 'Гість'}" th:href="@{/login}">
+                        <span th:text="${user.login}"></span>
+                        <span> | Увійти</span>
+                    </a>
+                    <a class="nav-item nav-link" th:if="${user.login != 'Гість'}" th:href="@{/logout}">
+                        <span th:text="${user.login}"></span>
+                        <span> | Вийти</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</body>
+</html>
